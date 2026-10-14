@@ -1,0 +1,52 @@
+/* InkSpace frontend authentication modal */
+.auth-modal-overlay{
+  position:fixed; inset:0; z-index:450; display:none; align-items:center; justify-content:center;
+  padding:20px; background:rgba(20,19,17,.5);
+}
+.auth-modal-overlay.open{ display:flex; }
+.auth-modal{
+  width:100%; max-width:420px; max-height:calc(100vh - 40px); overflow-y:auto;
+  background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-l);
+  padding:30px; box-shadow:var(--shadow-l); animation:auth-modal-in .2s ease;
+}
+@keyframes auth-modal-in{ from{opacity:0;transform:scale(.96)} to{opacity:1;transform:scale(1)} }
+.auth-modal-head{ display:flex; align-items:flex-start; justify-content:space-between; gap:16px; margin-bottom:22px; }
+.auth-modal-head h2{ font-size:26px; margin:0 0 5px; }
+.auth-modal-head p{ margin:0; color:var(--ink-soft); font-size:14px; }
+.auth-close{
+  width:32px; height:32px; padding:0; border:1px solid var(--border); border-radius:50%;
+  background:var(--surface); color:var(--ink-soft); font-size:22px; line-height:1;
+}
+.auth-close:hover{ color:var(--ink); border-color:var(--border-strong); }
+.auth-form[hidden]{ display:none; }
+.auth-message{ min-height:20px; margin:-5px 0 14px; color:var(--danger); font-size:13px; }
+.auth-message.success{ color:var(--success); }
+.auth-forgot{ display:block; width:max-content; margin:-6px 0 20px; border:0; padding:0; background:transparent; color:var(--accent); font-size:13px; font-weight:600; }
+.auth-forgot:hover, .auth-switch button:hover{ text-decoration:underline; }
+.auth-switch{ margin:18px 0 0; color:var(--ink-soft); font-size:13.5px; text-align:center; }
+.auth-switch button{ border:0; padding:0; background:transparent; color:var(--accent); font:inherit; font-weight:600; }
+.auth-trigger{ min-width:64px; }
+@media (max-width:760px){
+  .auth-trigger{ padding:7px 12px; }
+  .auth-modal{ padding:24px; }
+}
+@media (max-width: 400px){
+  .auth-modal{
+    padding: 20px;
+    border-radius: 18px;
+  }
+
+  .auth-modal-head h2{
+    font-size: 23px;
+  }
+
+  .auth-modal-head{
+    gap: 10px;
+  }
+
+  .auth-close{
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+  }
+}

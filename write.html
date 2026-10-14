@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Write — InkSpace</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="auth.css">
+</head>
+<body>
+
+<header class="write-topbar">
+	<div class="container">
+		<a href="index.html" class="brand">Ink<span>Space</span></a>
+		<div class="row gap-md">
+			<div class="save-status" id="saveStatus"><span class="dot"></span><span>Saved</span><span id="lastSavedTime"></span></div>
+			<a href="posts.html" class="btn btn-ghost btn-sm">My Posts</a>
+			<button type="button" class="btn btn-outline btn-sm" id="saveDraftBtn">Save Draft</button>
+			<button type="button" class="btn btn-primary btn-sm" id="publishBtn">Publish</button>
+		</div>
+	</div>
+</header>
+
+<main class="write-shell">
+	<div class="container">
+		<div class="section-head">
+			<div>
+				<span class="eyebrow">Create</span>
+				<h1 style="font-size:32px;">Write a new post</h1>
+			</div>
+			<button type="button" class="btn btn-ghost btn-sm" id="previewBtn">Jump to preview</button>
+		</div>
+
+		<div class="post-info-grid">
+			<div class="field">
+				<label for="postTitle">Title</label>
+				<input class="input" id="postTitle" type="text" placeholder="Give your post a title">
+			</div>
+			<div class="field">
+				<label for="postSlug">Slug</label>
+				<input class="input" id="postSlug" type="text" placeholder="your-post-slug">
+			</div>
+			<div class="field full">
+				<label for="postDescription">Description</label>
+				<input class="input" id="postDescription" type="text" placeholder="A short description for readers">
+			</div>
+			<div class="field">
+				<label for="postCategory">Category</label>
+				<select class="select" id="postCategory">
+					<option>Technology</option>
+					<option>Design</option>
+					<option>Programming</option>
+					<option>AI</option>
+					<option>Career</option>
+					<option>Lifestyle</option>
+					<option>Web Development</option>
+				</select>
+			</div>
+			<div class="field">
+				<label for="postTags">Tags</label>
+				<input class="input" id="postTags" type="text" placeholder="writing, ideas">
+			</div>
+			<div class="field full">
+				<label for="coverInput">Cover image</label>
+				<div class="cover-upload" id="coverUploadBox">
+					<span>Click to choose a cover image</span>
+					<input type="file" id="coverInput" accept="image/*">
+				</div>
+			</div>
+		</div>
+
+		<div class="editor-toolbar" aria-label="Formatting toolbar">
+			<button type="button" class="tb-btn" data-action="heading" aria-label="Heading">H</button>
+			<span class="tb-sep"></span>
+			<button type="button" class="tb-btn" data-action="bold" aria-label="Bold">B</button>
+			<button type="button" class="tb-btn" data-action="italic" aria-label="Italic"><em>I</em></button>
+			<button type="button" class="tb-btn" data-action="link" aria-label="Link">Link</button>
+			<button type="button" class="tb-btn" data-action="image" aria-label="Image">Img</button>
+			<span class="tb-sep"></span>
+			<button type="button" class="tb-btn" data-action="quote" aria-label="Quote">&gt;</button>
+			<button type="button" class="tb-btn" data-action="ol" aria-label="Numbered list">1.</button>
+			<button type="button" class="tb-btn" data-action="ul" aria-label="Bulleted list">-</button>
+			<button type="button" class="tb-btn" data-action="code" aria-label="Code">&lt;/&gt;</button>
+			<button type="button" class="tb-btn" data-action="hr" aria-label="Divider">---</button>
+		</div>
+		<div class="editor-split">
+			<div class="editor-pane">
+				<textarea id="markdownInput" placeholder="Start writing in Markdown..."></textarea>
+			</div>
+			<div class="preview-pane" id="markdownPreview"></div>
+		</div>
+		<div class="editor-stats">
+			<span><b id="wordCount">0</b> words</span>
+			<span><b id="charCount">0</b> characters</span>
+			<span><b id="readTimeCount">1</b> min read</span>
+		</div>
+	</div>
+</main>
+
+<script src="script.js"></script>
+<script src="auth.js"></script>
+</body>
+</html>
